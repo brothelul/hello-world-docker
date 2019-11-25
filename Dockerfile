@@ -1,0 +1,4 @@
+FROM openjdk:8
+MAINTAINER cheng lu
+COPY  ./demo-0.0.1.SNAPSHOT.jar  /demo.jar
+CMD java -jar demo.jar
