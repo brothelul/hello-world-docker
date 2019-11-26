@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 git pull;
 mvn clean package -U;
-mv target/demo-*.jar /opt/application/demo.jar;
-docker build -t "demo.jar";
+mv target/demo-*.jar target/demo.jar
+docker build -t "chenglu/demo";
 
 # 删除容器
 docker rm -f demo &> /dev/null;
@@ -23,7 +23,7 @@ docker run -d --restart=on-failure:5 --privileged=true \
         -XX:+PrintGCDetails \
         -XX:+HeapDumpOnOutOfMemoryError \
         -Xloggc:logs/gc_$version.log \
-        -jar /opt/application/demo.jar \
+        -jar /home/demo.jar \
 
 sudo docker rmi $(docker images -f "dangling=true" -q)
 
