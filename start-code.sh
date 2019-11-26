@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 git pull;
 mvn clean package -U;
-mv target/demo-*.jar target/demo.jar
+mv target/demo-*.jar ./target/demo.jar
 docker build -t "chenglu/demo" .;
 
 # 删除容器
