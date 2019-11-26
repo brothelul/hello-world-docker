@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-img_tag=$0;
+img_tag=$1;
 if [ ! $img_tag ]; then
     echo "docker image tag cannot be null";
     exit 0;
