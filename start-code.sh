@@ -7,7 +7,7 @@ fi
 img_mvn="maven:3.3.3-jdk-8";                 # docker image of maven
 m2_cache=~/.m2;                              # the local maven cache dir
 proj_home=$PWD;                              # the project root dir
-img_output="chenglu/demo:"+img_tag;         # output image tag
+img_output="chenglu/demo:$img_tag";         # output image tag
 img_name="demo";
 
 git pull  # should use git clone https://name:pwd@xxx.git
