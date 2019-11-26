@@ -7,13 +7,13 @@ img_output="chenglu/demo"         # output image tag
 
 git pull  # should use git clone https://name:pwd@xxx.git
 
-echo "use docker maven"
+echo "使用docker的maven"
 docker run --rm \
    -v $m2_cache:/root/.m2 \
    -v $proj_home:/opt/maven \
    -w /opt/maven $img_mvn mvn clean package -U
 
-mv $proj_home/target/demo-*.jar $proj_home/target/demo.jar
+mv $proj_home/target/demo-*.jar $proj_home/target/demo.jar;
 docker build -t "chenglu/demo" .;
 
 # 删除容器
@@ -35,6 +35,7 @@ docker run -d --restart=on-failure:5 --privileged=true \
         -XX:+PrintGCDetails \
         -XX:+HeapDumpOnOutOfMemoryError \
         -Xloggc:logs/gc_$version.log \
-        -jar /home/demo.jar \
-
+        -jar /home/demo.jar \;
+echo "删除没有名字的旧镜像";
+docker rmi $(docker images -f "dangling=true" -q)
 docker logs -f demo
