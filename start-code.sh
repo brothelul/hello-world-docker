@@ -2,7 +2,7 @@
 git pull;
 mvn clean package -U;
 mv target/demo-*.jar target/demo.jar
-docker build -t "chenglu/demo";
+docker build -t "chenglu/demo" .;
 
 # 删除容器
 docker rm -f demo &> /dev/null;
