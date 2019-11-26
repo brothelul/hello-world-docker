@@ -21,7 +21,7 @@ img_id= docker images $img_output -q
 # 上传镜像到腾讯云
 echo "login tencent registory"
 sudo docker login --username=100012207427 ccr.ccs.tencentyun.com
-sudo docker tag $img_output:v1 ccr.ccs.tencentyun.com/chenglu_test/test:v1
+sudo docker tag $img_output:$img_id ccr.ccs.tencentyun.com/chenglu_test/test:v1
 sudo docker push ccr.ccs.tencentyun.com/chenglu_test/test:v1
 
 # 删除容器
