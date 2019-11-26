@@ -1,3 +1,3 @@
 FROM openjdk:8
 MAINTAINER cheng lu
-COPY  target/demo.jar  /home/demo.jar
+COPY  target/demo.jar  /home/
