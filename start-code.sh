@@ -25,6 +25,4 @@ docker run -d --restart=on-failure:5 --privileged=true \
         -Xloggc:logs/gc_$version.log \
         -jar /home/demo.jar \
 
-sudo docker rmi $(docker images -f "dangling=true" -q)
-
 docker logs -f demo
