@@ -1,7 +1,19 @@
 #!/usr/bin/env bash
-git pull;
-mvn clean package -U;
-mv target/demo-*.jar $PWD/target/demo.jar
+
+img_mvn="maven:3.3.3-jdk-8"                 # docker image of maven
+m2_cache=~/.m2                              # the local maven cache dir
+proj_home=$PWD                              # the project root dir
+img_output="chenglu/demo"         # output image tag
+
+git pull  # should use git clone https://name:pwd@xxx.git
+
+echo "use docker maven"
+docker run --rm \
+   -v $m2_cache:/root/.m2 \
+   -v $proj_home:/opt/maven \
+   -w /opt/maven $img_mvn mvn clean package -U
+
+mv $proj_home/target/demo-*.jar $proj_home/target/demo.jar
 docker build -t "chenglu/demo" .;
 
 # 删除容器
