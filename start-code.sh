@@ -23,10 +23,10 @@ docker build -t $img_output .;
 
 img_id= docker images $img_output -q
 # 上传镜像到腾讯云
-echo "login tencent registory"
-sudo docker login --username=100012207427 ccr.ccs.tencentyun.com
-sudo docker tag $img_output ccr.ccs.tencentyun.com/chenglu_test/test:$img_tag
-sudo docker push ccr.ccs.tencentyun.com/chenglu_test/test:$img_tag
+#echo "login tencent registory"
+#sudo docker login --username=100012207427 ccr.ccs.tencentyun.com
+#sudo docker tag $img_output ccr.ccs.tencentyun.com/chenglu_test/test:$img_tag
+#sudo docker push ccr.ccs.tencentyun.com/chenglu_test/test:$img_tag
 
 # 删除容器
 docker rm -f $img_name &> /dev/null;
